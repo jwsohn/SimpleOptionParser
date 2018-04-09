@@ -72,7 +72,7 @@ class SimpleOptionParser(object):
                 if option != None:
                     if option in self.no_parameter_option_list:
                         if self.option_value_dict[option] != None:
-                            print("Error: duplicate entry for option", arg)
+                            print("Error: duplicate entry for option %s" % arg)
 
                             return False
 
@@ -81,25 +81,25 @@ class SimpleOptionParser(object):
                         try:
                             value = next(iterator)
                         except StopIteration:
-                            print("Error: option", arg, "has no parameter.")
+                            print("Error: option %s has no parameter." % arg)
                             
                             return False
                         else: 
                             if value.startswith('-'):
-                                print("Error: option", arg,
-                                        "does not have corresponding parameter.")
+                                print("Error: option %s does not have \
+                                        corresponding parameter." % arg)
 
                                 return False
                             
                             if self.option_value_dict[option] != None:
-                                print("Error: duplicate entry for option", arg)
+                                print("Error: duplicate entry for option %s" % arg)
 
                                 return False
 
                             # if all conditions are passed
                             self.option_value_dict[option] = value
                     else:
-                        print("Error: invalid option", arg)                        
+                        print("Error: invalid option %s" % arg)                        
 
                         return False
                         
@@ -123,7 +123,7 @@ if __name__=='__main__':
     p.add_usage_line("\t-t , --toggle           No parameter option example")
     p.add_usage_line("\t-f , --foobar [number]  Single parameter option example")
 
-    p.put_single_parameter_option('-t')
+    p.put_no_parameter_option('-t')
     p.store_equivalent_options('-t', '--toggle')
 
     p.put_single_parameter_option('-f')
