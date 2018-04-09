@@ -43,7 +43,7 @@ public class SimpleOptionParser
     }
     
     /* Declare "-f" as an option with a single parameter, for example */
-    public void putSingleOption(String singleOption)
+    public void putSingleParameterOption(String singleOption)
     {
         optionValueMap.put(singleOption, null);
         singleParameterOptionList.add(singleOption);
@@ -203,7 +203,7 @@ public class SimpleOptionParser
     {
         SimpleOptionParser p = new SimpleOptionParser();
         
-        /* How to prepare for parsing */
+        /* Prepare for parsing */
         p.addUsageLine("Usage: application [options] ... [files] ...");
         p.addUsageLine("\t-t , --toggle             No parameter option example");
         p.addUsageLine("\t-f , --foobar [number]    Single parameter option example");
@@ -211,7 +211,7 @@ public class SimpleOptionParser
         p.putNoParameterOption("-t");
         p.storeEquivalentOptions("-t", "--toggle");
         
-        p.putSingleOption("-f");
+        p.putSingleParameterOption("-f");
         p.storeEquivalentOptions("-f", "--foobar");
         
         /* Parse */
@@ -236,3 +236,4 @@ public class SimpleOptionParser
         System.out.println(p.getUsage());
     }
 }
+
