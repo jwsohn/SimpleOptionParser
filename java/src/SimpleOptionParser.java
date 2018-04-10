@@ -43,10 +43,10 @@ public class SimpleOptionParser
     }
     
     /* Declare "-f" as an option with a single parameter, for example */
-    public void putSingleParameterOption(String singleOption)
+    public void putSingleParameterOption(String singleParameterOption)
     {
-        optionValueMap.put(singleOption, null);
-        singleParameterOptionList.add(singleOption);
+        optionValueMap.put(singleParameterOption, null);
+        singleParameterOptionList.add(singleParameterOption);
     }
     
     /* Make "-f" and "--foobar" the same options, for example */

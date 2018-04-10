@@ -3,7 +3,7 @@ import sys
 
 class SimpleOptionParser(object):
     """Parses command line args and options into dict and list"""
-
+    
     def __init__(self):
         self.option_value_dict = {}
         self.arg_list = []
@@ -105,6 +105,8 @@ class SimpleOptionParser(object):
                         
                 else:   # if arg is not option
                     self.arg_list.append(arg)
+
+            # end of try - except - else
 
         if len(self.arg_list) == 0: 
             print("Error: no arguments entered.")
